@@ -1,7 +1,9 @@
+const { Server } = require("socket.io");
+
 let io;
 
-export const initSocket = async (server) => {
-  io = new (await import("socket.io")).Server(server, {
+const initSocket = (server) => {
+  io = new Server(server, {
     cors: {
       origin: "http://localhost:5173",
       credentials: true
@@ -15,4 +17,6 @@ export const initSocket = async (server) => {
   });
 };
 
-export const getIO = () => io;
+const getIO = () => io;
+
+module.exports = { initSocket, getIO };
