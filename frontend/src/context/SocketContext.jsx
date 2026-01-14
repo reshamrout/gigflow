@@ -23,7 +23,6 @@ export const SocketProvider = ({ children }) => {
 
     socket.on("hired", handleHired);
 
-    // ✅ CLEANUP
     return () => {
       socket.off("hired", handleHired);
     };

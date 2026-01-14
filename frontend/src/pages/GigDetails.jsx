@@ -73,10 +73,9 @@ const GigDetails = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-8">
-      {/* ===== SUBMIT BID CARD ===== */}
       <div className="bg-white rounded-2xl shadow-lg p-6">
         <h3 className="text-2xl font-semibold mb-4">Submit Your Bid</h3>
-
+        {/* Bid */}
         <form onSubmit={submitBid} className="space-y-4">
           <div>
             <label className="text-sm text-gray-600">Proposal Message</label>
@@ -110,7 +109,7 @@ const GigDetails = () => {
         </form>
       </div>
 
-      {/* ===== BIDS LIST ===== */}
+        {/* bid list */}
       <div>
         <h3 className="text-2xl font-semibold mb-4">Submitted Bids</h3>
 

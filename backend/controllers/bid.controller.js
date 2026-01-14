@@ -18,9 +18,7 @@ const getBidsForGig = async (req, res) => {
   res.json(bids);
 };
 
-//BONUS 1: TRANSACTION + RACE-CONDITION SAFE HIRING
-//BONUS 2: REAL-TIME SOCKET NOTIFICATION
-
+//Bonus
 const hireBid = async (req, res) => {
   const session = await mongoose.startSession();
   session.startTransaction();
@@ -51,7 +49,6 @@ const hireBid = async (req, res) => {
 
     await session.commitTransaction();
 
-    // 🔔 Socket notification
     getIO()
       .to(bid.freelancerId._id.toString())
       .emit("hired", {

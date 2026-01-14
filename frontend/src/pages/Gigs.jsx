@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { useEffect, useState } from "react";
 import api from "../api/axios";
 import GigCard from "../components/GigCard";
@@ -8,7 +8,7 @@ const Gigs = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    api.get(`/gigs?search=${search}`).then(res => setGigs(res.data));
+    api.get(`/gigs?search=${search}`).then((res) => setGigs(res.data));
   }, [search]);
 
   return (
@@ -21,11 +21,17 @@ const Gigs = () => {
         onChange={(e) => setSearch(e.target.value)}
       />
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {gigs.map(gig => (
-          <GigCard key={gig._id} gig={gig} />
-        ))}
-      </div>
+      {gigs.length === 0 ? (
+        <div className="text-center">
+          <p>No Gigs Available</p>
+        </div>
+      ) : (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {gigs.map((gig) => (
+            <GigCard key={gig._id} gig={gig} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
