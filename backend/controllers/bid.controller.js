@@ -52,7 +52,7 @@ const hireBid = async (req, res) => {
     getIO()
       .to(bid.freelancerId._id.toString())
       .emit("hired", {
-        message: `🎉 You have been hired for "${gig.title}"`,
+        message: `You have been hired for "${gig.title}"`,
         gigId: gig._id,
       });
 
