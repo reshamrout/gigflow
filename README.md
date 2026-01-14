@@ -3,7 +3,9 @@
 **GigFlow** is a mini freelance marketplace platform where **clients can post gigs** and **freelancers can bid on them**.  
 It demonstrates real-world backend logic such as **secure authentication, transactional hiring, authorization, and real-time notifications**.
 
-This project was built as a **full-stack assignment** using clean architecture and production-style patterns.
+This project was built as a **full-stack assignment** using clean architecture and production-style patterns.  
+
+LIVE AT : https://gigflow-lovat.vercel.app/  
 
 
 ## ✨ Features
