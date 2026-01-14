@@ -9,6 +9,17 @@ const getGigs = async (req, res) => {
   res.json(gigs);
 };
 
+const getGigById = async (req, res) => {
+  const gig = await Gig.findById(req.params.id);
+
+  if (!gig) {
+    return res.status(404).json({ message: "Gig not found" });
+  }
+
+  res.status(200).json(gig);
+};
+
+
 const createGig = async (req, res) => {
   const gig = await Gig.create({
     ...req.body,
@@ -17,4 +28,4 @@ const createGig = async (req, res) => {
   res.json(gig);
 };
 
-module.exports = { getGigs, createGig };
+module.exports = { getGigs, createGig, getGigById };

@@ -1,14 +1,11 @@
+
 const express = require("express");
-const {
-  submitBid,
-  getBidsForGig,
-  hireBid
-} = require("../controllers/bid.controller");
+const { getGigs, createGig, getGigById } = require("../controllers/gig.controller");
 const { auth } = require("../middleware/auth.middleware");
 
 const router = express.Router();
-router.post("/", auth, submitBid);
-router.get("/:gigId", auth, getBidsForGig);
-router.patch("/:bidId/hire", auth, hireBid);
+router.get("/", getGigs);
+router.post("/", auth, createGig);
+router.get("/:id",getGigById);
 
 module.exports = router;
